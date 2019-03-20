@@ -1,0 +1,16 @@
+{
+  "name": "claim-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "claim.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eosjs": "^20.0.0-beta3",
+    "node-fetch": "^2.3.0",
+    "text-encoding": "^0.7.0"
+  }
+}
