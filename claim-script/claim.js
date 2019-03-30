@@ -43,7 +43,7 @@ async function claim(config){
             console.log(`Claimed rewards for ${conf.name}`)
         }
         catch (e){
-            if (e.message.indexOf('already claimed rewards within past day') == -1){
+            if (e.message.indexOf('already claimed rewards within past day') == -1 && e.message.indexOf('producer pay request not found') == -1){
                 console.error(`Failed to claim for ${conf.name} - ${e.message}`)
             }
         }
