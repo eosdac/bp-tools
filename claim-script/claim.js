@@ -23,10 +23,12 @@ async function claim(config){
         const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
         try {
+            const action_name = (conf.name === 'wax')?'claimgbmprod':'claimrewards';
+
             await api.transact({
                 actions:[{
                     account: 'eosio',
-                    name: 'claimrewards',
+                    name: action_name,
                     authorization: [{
                         actor: conf.producer_name,
                         permission: conf.claim_permission
@@ -39,27 +41,6 @@ async function claim(config){
                 blocksBehind: 3,
                 expireSeconds: 30,
             });
-
-            if (conf.name === 'wax'){
-                await api.transact({
-                    actions:[{
-                        account: 'eosio',
-                        name: 'claimgbmprod',
-                        authorization: [{
-                            actor: conf.producer_name,
-                            permission: conf.claim_permission
-                        }],
-                        data: {
-                            owner: conf.producer_name
-                        }
-                    }]
-                }, {
-                    blocksBehind: 3,
-                    expireSeconds: 30,
-                });
-
-                console.log(`Claimed WAX GBM rewards`);
-            }
 
             console.log(`Claimed rewards for ${conf.name}`);
         }
