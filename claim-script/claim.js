@@ -73,6 +73,6 @@ async function claim(config){
 
 }
 
-setInterval(() => {claim(config)}, 6000);
+setInterval(() => {claim(config)}, 60000);
 
 claim(config);
