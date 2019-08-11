@@ -1,0 +1,14 @@
+init_config:
+
+instances:
+  - host: 127.0.0.1
+    port: 28888
+    name: wax
+
+  - host: 127.0.0.1
+    port: 38888
+    name: worbli
+
+  - host: 127.0.0.1
+    port: 8888
+    name: bos
