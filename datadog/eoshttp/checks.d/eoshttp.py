@@ -41,4 +41,4 @@ class CheckValue(AgentCheck):
 
 
     # Service is ok
-    self.service_check('eoshttp.'+name+'.is_ok', 0)
+    self.service_check('eoshttp.'+name+'.is_ok', 0, tags=['nodeosversion:' + data['server_version_string']])
