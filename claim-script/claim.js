@@ -1,7 +1,7 @@
 
 const {Api, JsonRpc} = require('eosjs');
 const {TextDecoder, TextEncoder} = require('text-encoding');
-const JsSignatureProvider = require('eosjs/dist/eosjs-jssig');
+const {JsSignatureProvider} = require('eosjs/dist/eosjs-jssig');
 const fetch = require('node-fetch');
 
 const config = require('./config');
