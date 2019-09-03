@@ -10,7 +10,7 @@ const keys = config.map((conf) => {
     return conf.claim_key
 });
 
-const signatureProvider = new JsSignatureProvider.default(keys);
+const signatureProvider = new JsSignatureProvider(keys);
 
 
 
