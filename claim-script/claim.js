@@ -43,6 +43,37 @@ async function claim(config){
             });
 
             console.log(`Claimed rewards for ${conf.name}`);
+
+            if (conf.name === 'wax'){
+                console.log(`Claiming genesis for WAX`);
+
+                await api.transact({
+                    actions:[{
+                        account: 'eosio',
+                        name: 'claimgenesis',
+                        authorization: [{
+                            actor: conf.producer_name,
+                            permission: conf.claim_permission
+                        }],
+                        data: {
+                            claimer: conf.producer_name
+                        }
+                    },{
+                        account: 'eosio',
+                        name: 'voterclaim',
+                        authorization: [{
+                            actor: conf.producer_name,
+                            permission: conf.claim_permission
+                        }],
+                        data: {
+                            owner: conf.producer_name
+                        }
+                    }]
+                }, {
+                    blocksBehind: 3,
+                    expireSeconds: 30,
+                });
+            }
         }
         catch (e){
             if (e.message.indexOf('already claimed rewards within past day') === -1 && e.message.indexOf('producer pay request not found') === -1){
