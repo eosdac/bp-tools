@@ -50,18 +50,6 @@ async function claim(config){
                 await api.transact({
                     actions:[{
                         account: 'eosio',
-                        name: 'voteproducer',
-                        authorization: [{
-                            actor: conf.producer_name,
-                            permission: conf.claim_permission
-                        }],
-                        data: {
-                            voter: conf.producer_name,
-                            proxy: 'waxcommunity',
-                            producers: []
-                        }
-                    },{
-                        account: 'eosio',
                         name: 'claimgenesis',
                         authorization: [{
                             actor: conf.producer_name,
