@@ -24,10 +24,11 @@ async function claim(config){
 
         try {
             const action_name = (conf.name === 'wax')?'claimgbmprod':'claimrewards';
+            const account = (conf.name === 'remme')?'rem':'eosio';
 
             await api.transact({
                 actions:[{
-                    account: 'eosio',
+                    account,
                     name: action_name,
                     authorization: [{
                         actor: conf.producer_name,
