@@ -5,7 +5,7 @@ global.fetch = require("node-fetch");
 global.WebSocket = require("ws");
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const dfuse_key = '';
+const dfuse_key = require('./secret').dfuse_key;
 const dfuse_endpoint = 'https://mainnet.eos.dfuse.io/';
 const { createDfuseClient } = require("@dfuse/client")
 const client = createDfuseClient({ apiKey: dfuse_key, network: "mainnet" })
