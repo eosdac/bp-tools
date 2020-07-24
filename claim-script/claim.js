@@ -92,7 +92,7 @@ async function claim(config){
 
             console.log(`Claimed rewards for ${conf.name}`);
 
-            if (conf.name === 'wax'){
+            if (conf.name === 'wax' || config.name == 'waxtest'){
                 console.log(`Claiming genesis for WAX`);
 
                 await api.transact({
