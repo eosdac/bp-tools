@@ -9,7 +9,7 @@ const global_config = require('./config');
 const round_length = 6000 * 21;
 
 const miss_counter = {};
-const unregistered = [];
+let unregistered = [];
 const max_missed_rounds = 5;
 
 const in_schedule = async (config) => {
@@ -74,6 +74,8 @@ const is_producing = async (config) => {
 
             if (block_data.producer === config.producer_name){
                 console.log(`${config.producer_name} is producing on ${config.name}`);
+                miss_counter[config.name] = 0;
+                unregistered = unregistered.filter(u => u !== config.name);
                 return true;
             }
 
