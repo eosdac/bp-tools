@@ -88,7 +88,7 @@ const is_producing = async (config) => {
         const last_update = Date.parse(last_update_str);
         const now = new Date().getTime();
 
-        if (now - last_update <= round_length){
+        if (now - last_update >= round_length){
             console.log(`Assuming producing because schedule changed`);
             return true;
         }
