@@ -216,6 +216,8 @@ const run = async (configs) => {
                 if (!ip){
                     send_alert(config);
                 }
+            }).catch(e => {
+                console.error(`Could not determine if producing ${e.message}`)
             });
         }
     }
