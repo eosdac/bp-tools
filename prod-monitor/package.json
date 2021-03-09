@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "eosjs": "^21.0.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "text-encoding": "^0.7.0",
     "twilio": "^3.49.0"
   }
