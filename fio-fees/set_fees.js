@@ -173,8 +173,22 @@ async function set_multiplier(config){
     }
 }
 
-setInterval(() => {set_fees(config)}, 60000 * 60 * 24 * 30); // every 30 days
+function setDaysInterval(callback, days) {
+    // 86400 seconds in a day
+    let msInDay = 86400*1000;
+
+    let dayCount = 0;
+    let timer = setInterval(function() {
+        dayCount++;  // a day has passed
+
+        if (dayCount === days) {
+            callback.apply(this, []);
+        }
+    }, msInDay);
+}
+
+setDaysInterval(() => {set_fees(config)}, 30); // every 30 days
 setInterval(() => {set_multiplier(config)}, 60000 * 60 * 3); // every 3 hours
 
-set_fees(config);
-set_multiplier(config);
+// set_fees(config);
+// set_multiplier(config);
