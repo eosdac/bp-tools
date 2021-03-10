@@ -133,8 +133,11 @@ async function set_fees(config){
         console.log(`Sent fees`);
     }
     catch (e){
-        let msg = e.json.error.what;
-        console.error(`Failed to set fees - ${e.message}`);
+        let msg = e.message;
+        if (e.json && e.json.error){
+            msg = e.json.error.what;
+        }
+        console.error(`Failed to set fees - ${msg}`);
     }
 
 }
@@ -168,26 +171,15 @@ async function set_multiplier(config){
         console.log(`Sent multiplier`);
     }
     catch (e){
-        let msg = e.json.error.what;
-        console.error(`Failed to set multiplier - ${e.message}`);
+        let msg = e.message;
+        if (e.json && e.json.error){
+            msg = e.json.error.what;
+        }
+        console.error(`Failed to set multiplier - ${msg}`);
     }
 }
 
-function setDaysInterval(callback, days) {
-    // 86400 seconds in a day
-    let msInDay = 86400*1000;
-
-    let dayCount = 0;
-    let timer = setInterval(function() {
-        dayCount++;  // a day has passed
-
-        if (dayCount === days) {
-            callback.apply(this, []);
-        }
-    }, msInDay);
-}
-
-setDaysInterval(() => {set_fees(config)}, 30); // every 30 days
+setInterval(() => {set_fees(config)}, 2147483647); // every 24-ish days (max 32-bit)
 setInterval(() => {set_multiplier(config)}, 60000 * 60 * 3); // every 3 hours
 
 set_fees(config);
