@@ -190,5 +190,5 @@ function setDaysInterval(callback, days) {
 setDaysInterval(() => {set_fees(config)}, 30); // every 30 days
 setInterval(() => {set_multiplier(config)}, 60000 * 60 * 3); // every 3 hours
 
-// set_fees(config);
-// set_multiplier(config);
+set_fees(config);
+set_multiplier(config);
