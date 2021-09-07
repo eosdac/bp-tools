@@ -76,6 +76,7 @@ async function set_fees(config){
                 { "end_point": "renew_fio_domain", "value": 40000000000 },
                 { "end_point": "renew_fio_address", "value": 2000000000 },
                 { "end_point": "add_pub_address", "value": 30000000 },
+                { "end_point": "add_bundled_transactions", "value": 2000000000 },
                 { "end_point": "transfer_tokens_pub_key", "value": 100000000 },
                 { "end_point": "new_funds_request", "value": 60000000 },
                 { "end_point": "reject_funds_request", "value": 30000000 },
